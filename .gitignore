@@ -1,32 +1,25 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+*.[oa]
+*.cbp
+*.depend
+bin/
+obj/
+*.layout
+.layout
+.vs/
+ 
+ 
+x64/
+x86/
+Debug/
+ipch/
+*.db
+*.filters
+*.user
+*.bmp
+*.png
+stdafx.h
+stdafx.cpp
+targetver.h
+StdAfx.h
+StdAfx.cpp
+packages/
