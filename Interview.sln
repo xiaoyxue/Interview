@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClimbStairs", "ClimbStairs\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopologicalSort", "TopologicalSort\TopologicalSort.vcxproj", "{342F673A-59BC-4368-B236-F726CB3A4C2E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ListSorting", "ListSorting\ListSorting.vcxproj", "{98CF551D-3D25-4BC4-83F1-7932A65144B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{342F673A-59BC-4368-B236-F726CB3A4C2E}.Release|x64.Build.0 = Release|x64
 		{342F673A-59BC-4368-B236-F726CB3A4C2E}.Release|x86.ActiveCfg = Release|Win32
 		{342F673A-59BC-4368-B236-F726CB3A4C2E}.Release|x86.Build.0 = Release|Win32
+		{98CF551D-3D25-4BC4-83F1-7932A65144B3}.Debug|x64.ActiveCfg = Debug|x64
+		{98CF551D-3D25-4BC4-83F1-7932A65144B3}.Debug|x64.Build.0 = Debug|x64
+		{98CF551D-3D25-4BC4-83F1-7932A65144B3}.Debug|x86.ActiveCfg = Debug|Win32
+		{98CF551D-3D25-4BC4-83F1-7932A65144B3}.Debug|x86.Build.0 = Debug|Win32
+		{98CF551D-3D25-4BC4-83F1-7932A65144B3}.Release|x64.ActiveCfg = Release|x64
+		{98CF551D-3D25-4BC4-83F1-7932A65144B3}.Release|x64.Build.0 = Release|x64
+		{98CF551D-3D25-4BC4-83F1-7932A65144B3}.Release|x86.ActiveCfg = Release|Win32
+		{98CF551D-3D25-4BC4-83F1-7932A65144B3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
