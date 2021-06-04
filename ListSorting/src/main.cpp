@@ -1,7 +1,6 @@
 #include "List.h"
 #include "MergeSort.h"
 #include "BucketMergeSort.h"
-#include "QuickSort.h"
 #include <iostream>
 
 
@@ -36,24 +35,6 @@ int main() {
 	std::cout << list2 << std::endl;
 	list2.SetHead(BucketMergeSort(list2.GetHead()));
 	std::cout << list2 << std::endl;
-
-
-
-
-	//List list3;
-	//list3.Insert(3);
-	//list3.Insert(2);
-	//list3.Insert(1);
-	//list3.Insert(4);
-	//list3.Insert(7);
-	//list3.Insert(6);
-	//list3.Insert(5);
-	//list3.Insert(0);
-	//list3.Insert(12);
-	//list3.Insert(5);
-	//std::cout << list3 << std::endl;
-	//list3.SetHead(QuickSort(list3.GetHead(), nullptr));
-	//std::cout << list3 << std::endl;
 
 	return 0;
 }

@@ -142,13 +142,11 @@
     <ClInclude Include="src\BucketMergeSort.h" />
     <ClInclude Include="src\List.h" />
     <ClInclude Include="src\MergeSort.h" />
-    <ClInclude Include="src\QuickSort.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BucketMergeSort.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MergeSort.cpp" />
-    <ClCompile Include="src\QuickSort.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

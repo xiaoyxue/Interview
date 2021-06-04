@@ -19,9 +19,16 @@ public:
 		mpSentinelNode->next = nullptr;
 		mppTail = &(mpSentinelNode->next);
 	}
+	~List() {
+		delete mpSentinelNode;
+	}
 
 	ListNode* GetHead() const {
 		return mpSentinelNode->next;
+	}
+
+	ListNode* GetTain() const {
+		return *mppTail;
 	}
 
 	void SetHead(ListNode* head) {
