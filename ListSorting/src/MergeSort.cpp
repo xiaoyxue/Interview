@@ -48,3 +48,7 @@ ListNode* MergeSort(ListNode* head, ListNode* tail) {
 	ListNode* head2 = MergeSort(middleNodeNext, tail);
 	return MergeTwoList(head1, head2);
 }
+
+ListNode* MergeSort(ListNode* head) {
+	return MergeSort(head, nullptr);
+}

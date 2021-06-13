@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\QuickSort.h" />
     <ClInclude Include="src\BucketMergeSort.h" />
     <ClInclude Include="src\List.h" />
     <ClInclude Include="src\MergeSort.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\QuickSort.cpp" />
     <ClCompile Include="src\BucketMergeSort.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MergeSort.cpp" />
