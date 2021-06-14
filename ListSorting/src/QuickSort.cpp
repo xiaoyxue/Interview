@@ -1,46 +1,61 @@
 #include "QuickSort.h"
 #include "List.h"
-#include <iostream>
+#include <random>
 
 struct PartitionInfo {
 	ListNode* head, * pivot, * tail;
-	PartitionInfo(): head(nullptr), pivot(nullptr), tail(nullptr) {}
-	PartitionInfo(ListNode* h, ListNode* p, ListNode* t): head(h), pivot(p), tail(t) {}
+	int left, right;
+	PartitionInfo() : head(nullptr), pivot(nullptr), tail(nullptr), left(0), right(0) {}
+	PartitionInfo(ListNode* h, ListNode* p, ListNode* t, int l, int r) : head(h), pivot(p), tail(t), left(l), right(0) {}
 };
 
-PartitionInfo Partition(ListNode* head, ListNode* tail) {
+std::random_device rd;
+std::mt19937 mt(rd());
+std::uniform_real_distribution<float> dist(0.f, 1.f);
+
+PartitionInfo Partition(ListNode* head, ListNode* tail, int length) {
+	int stepLength = std::min(length / 2, int(length * dist(mt)));
+	ListNode** pp = &head;
+	for (int i = 0; i < stepLength; ++i) {
+		pp = &((*pp)->next);
+	}
+
+	if (*pp != head) {
+		ListNode* temp = *pp;
+		*pp = (*pp)->next;
+		temp->next = head;
+		head = temp;
+	}
+
 	ListNode* pivot = head;
 	ListNode dummy;
 	ListNode** py = &(head->next);
 	dummy.next = head;
-	//std::cout << "pivot: " << pivot->val << std::endl;
-	//std::cout << "y0: " << y->val << std::endl;
+	int left = 0, right = 0;
 	while ((*py) != tail) {
-		//std::cout << "y: " << (*py)->val << std::endl;
 		if ((*py)->val < pivot->val) {
 			ListNode* temp = *py;
 			*py = (*py)->next;
 			temp->next = dummy.next;
 			dummy.next = temp;
+			++left;
 		}
 		else {
 			py = &((*py)->next);
+			++right;
 		}
 	}
-	//List list;
-	//list.SetHead(dummy.next);
-	//std::cout << list << std::endl;
-	return PartitionInfo(dummy.next, pivot, tail);
+	return PartitionInfo(dummy.next, pivot, tail, left, right);
 }
 
-std::pair<ListNode*, ListNode*> QuickSort(ListNode* head, ListNode* tail) {
+std::pair<ListNode*, ListNode*> QuickSort(ListNode* head, ListNode* tail, int length) {
 	if (head == tail || head->next == tail) {
 		return std::pair<ListNode*, ListNode*>(head, tail);
 	}
-	PartitionInfo partitionResult = Partition(head, tail);
+	PartitionInfo partitionResult = Partition(head, tail, length);
 	if (partitionResult.pivot != nullptr) {
-		std::pair<ListNode*, ListNode*> list1 = QuickSort(partitionResult.head, partitionResult.pivot);
-		std::pair<ListNode*, ListNode*> list2 = QuickSort(partitionResult.pivot->next, tail);
+		std::pair<ListNode*, ListNode*> list1 = QuickSort(partitionResult.head, partitionResult.pivot, partitionResult.left);
+		std::pair<ListNode*, ListNode*> list2 = QuickSort(partitionResult.pivot->next, tail, partitionResult.right);
 		list1.second->next = list2.first;
 		return std::pair<ListNode*, ListNode*>(list1.first, list2.second);
 	}
@@ -48,5 +63,11 @@ std::pair<ListNode*, ListNode*> QuickSort(ListNode* head, ListNode* tail) {
 }
 
 ListNode* QuickSort(ListNode* head) {
-	return QuickSort(head, nullptr).first;
+	ListNode* p = head;
+	int length = 0;
+	while (p != nullptr) {
+		length++;
+		p = p->next;
+	}
+	return QuickSort(head, nullptr, length).first;
 }
